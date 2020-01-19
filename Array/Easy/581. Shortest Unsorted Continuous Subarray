@@ -1,0 +1,38 @@
+public class Solution {
+    public int findUnsortedSubarray(int[] nums) {
+        int[] snums = nums.clone();
+        Arrays.sort(snums);
+        int start=0;
+        int end=0;
+        
+        /*nums = [2,6,4,8,10,9,15]
+         snums = [2,4,6,8,9,10,15]
+         start = 1
+         end = 5
+         */
+        
+        
+        for(int i=0;i<nums.length;i++){
+            if(snums[i]!=nums[i]){
+                start=i;
+                break;
+            }
+        }
+        
+        for(int i=nums.length-1;i>start;i--){
+            if(snums[i]!=nums[i]){
+                end = i;
+                break;
+            }
+        }
+        
+        System.out.println("Start="+start+" End="+end);
+        
+        if(end!=0){
+        int len=end+1-start;
+        return len;
+        }
+        else
+            return 0;
+    }
+}
