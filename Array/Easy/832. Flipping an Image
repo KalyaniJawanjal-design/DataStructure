@@ -1,0 +1,34 @@
+class Solution {
+    public int[][] flipAndInvertImage(int[][] A) {
+        
+        int[][] arr = new int[A.length][A[0].length];
+        int[][] brr = new int[A.length][A[0].length];
+        int j=0;
+        System.out.println("A.lenght="+A.length+" A[0].length="+A[0].length);
+        for(int i=0;i<A.length;i++){
+            for(int x=A[0].length-1;x>-1;x--){
+               
+                if(j<A[0].length){
+                brr[i][x] = A[i][j];
+                j++;
+                }
+                if(j>=A[0].length){
+                j=0;
+                }
+            }
+        }
+        
+        for(int i=0;i<A.length;i++){
+            for(int x=0;x<A[0].length;x++){
+                if(brr[i][x]==0){
+                    brr[i][x]=1;
+                }
+                else
+                    brr[i][x]=0;
+            }
+        }
+        
+        return brr;
+        
+    }
+}
