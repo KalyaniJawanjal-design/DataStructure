@@ -1,0 +1,39 @@
+class Solution {
+    public boolean validMountainArray(int[] A) {
+        
+        int B[]=A.clone();
+        Arrays.sort(B);
+        
+        if(A.length<3){
+            return false;
+        }
+        
+         int peak=0;
+        int max=B[B.length-1];
+        
+        for(int i=0;i<A.length;i++){
+            if(max==A[i]){
+                peak=i;
+            }
+        }
+        
+        if(peak==0 || peak==A.length-1){
+            return false;
+        }
+        else{
+        for(int i=0;i<peak-1;i++){
+            if(A[i]>=A[i+1]){
+                return false;
+            }
+        }
+        
+        for(int i=peak+1;i<A.length-1;i++){
+            if(A[i]<=A[i+1]){
+                return false;
+            }
+        }
+        
+        return true;
+        }
+    }
+}
