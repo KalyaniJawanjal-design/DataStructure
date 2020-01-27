@@ -1,0 +1,26 @@
+class Solution {
+    public int findNumbers(int[] nums) {
+       
+        int res=0;
+        int countodd=0;
+        int counteven=0;
+        
+        for(int x:nums){
+            if((x>1 && x<10)||(x<1000 && x>100)||(x>10000 && x<100000)){
+                countodd++;        
+            }
+            else if((x<100 && x>10)||(x<10000 && x>1000)){
+                counteven++;
+            }
+        }
+        
+        return counteven;
+        
+    }
+}
+
+/*x<10^1 -- x<10 -- odd
+x<10^2 -- x<100 -- even
+x<10^3 -- x<1000 -- odd        1002
+x<10^4 -- x<10000 -- even
+x<10^5 -- x<100000 -- odd*/
