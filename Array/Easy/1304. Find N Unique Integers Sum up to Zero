@@ -1,0 +1,36 @@
+class Solution {
+    public int[] sumZero(int n) {
+    
+        int[] res=new int[n];
+        int i=0;
+        
+        if(n==1){
+            res[0]=0;
+            return res;
+        }
+        else{
+        n=n-1;
+        int sum=0;
+            
+        while(n>0){
+            res[i]=n;
+            sum=sum+n;
+            i++;
+            n--;
+            System.out.println("sum="+sum);
+        }
+        
+        //System.out.println("sum="+sum);
+        
+        res[i]=sum*(-1);
+        
+        Arrays.sort(res);
+        
+        for(int x:res){
+           // System.out.println(x);
+        }
+        
+        return res;
+        }
+    }
+}
