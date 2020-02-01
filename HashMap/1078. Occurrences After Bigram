@@ -1,0 +1,20 @@
+class Solution {
+    public String[] findOcurrences(String text, String first, String second) {
+        HashMap<Integer,String> map=new HashMap<>();
+        String[] words=text.split(" ");
+       int count=0;
+        for(int i=0;i<words.length-2;i++){
+            if(words[i].equals(first)&&words[i+1].equals(second)){
+                map.put(count,words[i+2]);
+                count++;
+            }
+            }
+        int k=0;
+        String[] arr=new String[map.size()];
+        for(int i=0;i<arr.length;i++){
+            arr[i]=map.get(k);
+            k++;
+        }
+        return arr;
+    }
+}
